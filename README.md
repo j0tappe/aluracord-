@@ -5,7 +5,7 @@ Projeto desenvolvido na Imersão React da [Alura](https://www.alura.com.br/).
 
 ## 🧩 Sobre o projeto
 
-- Desenvolvido utlizando Next e React, o Aluracord é uma projeto inspirado no discord. Você pode conferir como ficou o projeto acessando o deploy da aplicação **[clicando aqui.](https://vercel.com/j0tappe/aluracord)**
+- Desenvolvido utlizando Next e React, o Aluracord é uma projeto inspirado no discord. Você pode conferir como ficou o projeto acessando o deploy da aplicação **[clicando aqui.](https://aluracord-coral.vercel.app/)**
 
 
 ## 🚀 Tecnologias
