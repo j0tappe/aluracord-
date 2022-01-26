@@ -22,8 +22,9 @@ function Titulo(props) {
 
 export default function PaginaInicial() {
   //  const username = 'j0tappe';
-  const [username, setUsername] = React.useState('j0tappe');
+  const [username, setUsername] = React.useState('');
   const rout = useRouter();
+  const defaultImg = 'https://i1.sndcdn.com/avatars-000671708144-we6j8t-t500x500.jpg';
 
   return (
     <>
@@ -81,7 +82,7 @@ export default function PaginaInicial() {
             </Text>
 
             <TextField
-              value={username}
+              placeholder='digite seu usuário do github'
               onChange={function (event) {
                 // Onde ta o valor?
                 const valor = event.target.value;
@@ -136,7 +137,10 @@ export default function PaginaInicial() {
                 borderRadius: '50%',
                 marginBottom: '16px',
               }}
-              src={`https://github.com/${username}.png`}
+              src={username.length > 2 ? `https://github.com/${username}.png` : defaultImg}
+              onError={function (error) {
+                error.target.src = `${defaultImg}`
+              }}
             />
             <Text
               variant="body4"
@@ -148,6 +152,7 @@ export default function PaginaInicial() {
               }}
             >
               {username}
+              {/* acrescentar bio do github */}
             </Text>
           </Box>
           {/* Photo Area */}
