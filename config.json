@@ -29,7 +29,8 @@
                 "999": "#080A0C"
             },
             "transparency": {
-                "background": "rgba(92, 56, 102, 0.9)"
+                "background": "rgba(92, 56, 102, 0.9)",
+                "background_chat": "rgba(92, 56, 102, 0.6)"
             }
         }
     }

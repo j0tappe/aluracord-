@@ -24,7 +24,7 @@ export default function PaginaInicial() {
   //  const username = 'j0tappe';
   const [username, setUsername] = React.useState('');
   const rout = useRouter();
-  const defaultImg = 'https://i1.sndcdn.com/avatars-000671708144-we6j8t-t500x500.jpg';
+  const defaultImg = 'https://i1.sndcdn.com/avatars-000671708144-we6j8t-t500x500.jpg'
 
   return (
     <>
