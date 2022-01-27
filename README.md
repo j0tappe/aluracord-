@@ -13,6 +13,7 @@ Projeto desenvolvido na Imersão React da [Alura](https://www.alura.com.br/).
  - **[JavaSctipt](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)**
  - **[Next.Js](https://nextjs.org/)**
  - **[SkynexUI](https://skynexui.dev/)**
+ - **[Supabase](https://supabase.com/)**
 
 ## 🖌️ Layout
 
@@ -31,6 +32,10 @@ npm install
 yarn add @skynexui/components
 # ou
 npm install @skynexui/components
+#Supabase
+yarn add @supabase/supabase-js
+# ou
+npm install @supabase/supabase-js
 ```
 
 ## 👨🏻‍💻 Como executar o projeto
