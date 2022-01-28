@@ -164,6 +164,20 @@ export default function ChatPage() {
                             }}
                         />
 
+                        <Button
+                            buttonColors={{
+                                contrastColor: appConfig.theme.colors.neutrals["000"],
+                                mainColor: appConfig.theme.colors.primary[500],
+                                mainColorLight: appConfig.theme.colors.primary[400],
+                                mainColorStrong: appConfig.theme.colors.primary[600],
+                            }}
+                            label="Enviar"
+                            onClick={(event) => {
+                                event.preventDefault();
+                                handleNovaMensagem(mensagem);
+                            }}
+                        />
+
                     </Box>
                 </Box>
             </Box>
