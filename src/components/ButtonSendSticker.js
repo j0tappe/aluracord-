@@ -30,7 +30,12 @@ export function ButtonSendSticker(props) {
                         filter: 'grayscale(0)',
                     }
                 }}
-                label="😋"
+                label={<img
+                    src=""
+                    alt="eva ico"
+                    width="30px"
+
+                />}
                 onClick={() => setOpenState(!isOpen)}
             />
             {isOpen && (
