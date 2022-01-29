@@ -1,19 +1,51 @@
 import Link from 'next/link';
+import { Box, Image, Text } from '@skynexui/components';
 import appConfig from '../config.json';
+
 
 const NotFound = () => {
 
     return (
+        <>
+            <Box
+                styleSheet={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    backgroundColor: appConfig.theme.colors.neutrals[700],
+                }}
+            >
+                <Image
+                    styleSheet={{
+                        width: "50%"
 
-        <div className="not-found">
-
-            <img src="https://external-preview.redd.it/SVfkHWVio6HBxhkvDJ4BltHX_1KlTuK6HnGLAJm1IPk.jpg?width=640&crop=smart&auto=webp&s=461c44928437614898795e1e15128d349b18f400" alt="not-found-img" />
-            <h1>404 error |</h1>
-            <h1>Reage Shinji, entra no EVA</h1>
-            <p>Go back to the <Link href="/"><a>Homepage</a></Link></p>
+                    }}
+                    src="https://external-preview.redd.it/SVfkHWVio6HBxhkvDJ4BltHX_1KlTuK6HnGLAJm1IPk.jpg?width=640&crop=smart&auto=webp&s=461c44928437614898795e1e15128d349b18f400"
+                />
 
 
-        </div>
+                <Text
+                    variant="heading1"
+                    styleSheet={{
+                        color: appConfig.theme.colors.neutrals[200],
+                        fontSize: '16px',
+                        padding: '3px 10px',
+                    }}
+                >
+                    404 error |
+                </Text>
+                <Text
+                    variant="body1"
+                    styleSheet={{
+                        color: appConfig.theme.colors.neutrals[200],
+                        fontSize: '16px',
+                        padding: '3px 10px',
+                    }}
+                >
+                    Reage Shinji, entra no EVA
+                </Text>
+            </Box>
+        </>
 
     );
 
