@@ -36,17 +36,11 @@ export default function ChatPage() {
             });
 
         const subscription = escutaMensagensEmTempoReal((novaMensagem) => {
-            // console.log('Nova mensagem:', novaMensagem);
-            // console.log('listaDeMensagens:', listaDeMensagens);
+
             // Quero reusar um valor de referencia (objeto/array) 
             // Passar uma função pro setState
-
-            // setListaDeMensagens([
-            //     novaMensagem,
-            //     ...listaDeMensagens
-            // ])
             setListaDeMensagens((valorAtualDaLista) => {
-                //console.log('valorAtualDaLista:', valorAtualDaLista);
+                console.log('valorAtualDaLista:', valorAtualDaLista);
                 return [
                     novaMensagem,
                     ...valorAtualDaLista,
@@ -58,7 +52,6 @@ export default function ChatPage() {
             subscription.unsubscribe();
         }
     }, []);
-
 
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
@@ -74,11 +67,7 @@ export default function ChatPage() {
                 mensagem
             ])
             .then(({ data }) => {
-                // console.log('Criando mensagem: ', data);
-                setListaDeMensagens([
-                    data[0],
-                    ...listaDeMensagens,
-                ]);
+                console.log('Criando mensagem: ', data);
             });
 
         setMensagem('');
@@ -177,7 +166,6 @@ export default function ChatPage() {
                                 handleNovaMensagem(mensagem);
                             }}
                         />
-
                     </Box>
                 </Box>
             </Box>
@@ -215,7 +203,7 @@ function Header() {
 }
 
 function MessageList(props) {
-    //console.log(props);
+
     return (
         <Box
             tag="ul"
@@ -282,11 +270,7 @@ function MessageList(props) {
                             : (
                                 mensagem.texto
                             )}
-                        {/* if mensagem de texto possui stickers:
-                           mostra a imagem
-                        else 
-                           mensagem.texto */}
-                        {/* {mensagem.texto} */}
+
                     </Text>
                 );
             })}

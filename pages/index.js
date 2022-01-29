@@ -1,7 +1,8 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
 import appConfig from '../config.json';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+//import { supabase } from '../src/components/client';
 
 
 function Titulo(props) {
@@ -26,13 +27,29 @@ export default function PaginaInicial() {
   const rout = useRouter();
   const defaultImg = 'https://i1.sndcdn.com/avatars-000671708144-we6j8t-t500x500.jpg'
 
+
+  // Autenticação de Login com GitHub no Supabase
+  /* const [user, setUser] = useState(null);
+ 
+   useEffect(() => {
+     checkUser();
+     window.addEventListener('hashchange', function () {
+       checkUser();
+     });
+   }, [])
+   async function checkUser() {
+     const user = supabase.auth.user();
+     setUser(user);
+   }
+   async function signInWithGithub() {
+     await supabase.auth.signIn({
+       provider: 'github'
+     });
+   }*/
+
   return (
     <>
       <head>
-
-        <link rel="icon" href="../public/images/nerv.ico" />
-        <title>NERV</title>
-
       </head>
 
       <Box
@@ -61,10 +78,12 @@ export default function PaginaInicial() {
           {/* Formulário */}
           <Box
             as="form"
-            onSubmit={function (event) {
-              event.preventDefault();
-              rout.push(`/chat?username=${username}`);
-            }}
+            onSubmit={
+              function (event) {
+                event.preventDefault();
+                rout.push(`/chat?username=${username}`);
+              }
+            }
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
@@ -112,6 +131,19 @@ export default function PaginaInicial() {
                 mainColorStrong: appConfig.theme.colors.primary[600],
               }}
             />
+            <br></br>
+            {/* <Button
+              type='submit'
+              label='Sign in with Github'
+              fullWidth
+              buttonColors={{
+                contrastColor: appConfig.theme.colors.neutrals["000"],
+                mainColor: appConfig.theme.colors.neutrals[800],
+                mainColorLight: appConfig.theme.colors.primary[400],
+                mainColorStrong: appConfig.theme.colors.primary[600],
+              }}
+              onClick={signInWithGithub}
+            />*/ }
           </Box>
           {/* Formulário */}
 
