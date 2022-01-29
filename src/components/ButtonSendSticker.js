@@ -24,16 +24,17 @@ export function ButtonSendSticker(props) {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    backgroundColor: appConfig.theme.colors.neutrals[300],
+                    backgroundColor: appConfig.theme.colors.primary[500],
                     filter: isOpen ? 'grayscale(0)' : 'grayscale(1)',
                     hover: {
                         filter: 'grayscale(0)',
                     }
                 }}
                 label={<img
-                    src=""
+                    src="https://github.com/j0tappe/aluracord-nerv/blob/main/public/images/ico1.png?raw=true"
                     alt="eva ico"
-                    width="30px"
+                    width="40"
+                    height="40"
 
                 />}
                 onClick={() => setOpenState(!isOpen)}

@@ -1,6 +1,3 @@
-import { Icon } from "@skynexui/components";
-
-
 function GlobalStyle() {
   return (
     <style global jsx>{`

@@ -81,6 +81,7 @@ export default function PaginaInicial() {
             onSubmit={
               function (event) {
                 event.preventDefault();
+                // se usuario autenticado ir para
                 rout.push(`/chat?username=${username}`);
               }
             }
@@ -122,7 +123,7 @@ export default function PaginaInicial() {
             />
             <Button
               type='submit'
-              label='Entrar'
+              label="Entrar"
               fullWidth
               buttonColors={{
                 contrastColor: appConfig.theme.colors.neutrals["000"],
