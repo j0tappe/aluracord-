@@ -130,7 +130,10 @@ export default function ChatPage() {
                             onKeyPress={(event) => {
                                 if (event.key === 'Enter') {
                                     event.preventDefault();
-                                    handleNovaMensagem(mensagem);
+                                    // Verificar se a mensagem não esta vazia
+                                    if (mensagem.length >= 1) {
+                                        handleNovaMensagem(mensagem)
+                                    }
                                 }
                             }}
                             placeholder="Insira sua mensagem aqui..."
@@ -163,7 +166,9 @@ export default function ChatPage() {
                             label="Enviar"
                             onClick={(event) => {
                                 event.preventDefault();
-                                handleNovaMensagem(mensagem);
+                                if (mensagem.length >= 1) {
+                                    handleNovaMensagem(mensagem)
+                                }
                             }}
                         />
                     </Box>
@@ -265,7 +270,10 @@ function MessageList(props) {
                         {/* Condicional: {mensagem.texto.startsWith(':sticker:').toString()} */}
                         {mensagem.texto.startsWith(':sticker:')
                             ? (
-                                <Image src={mensagem.texto.replace(':sticker:', '')} />
+                                <Image
+                                    height='200px'
+                                    width='200px'
+                                    src={mensagem.texto.replace(':sticker:', '')} />
                             )
                             : (
                                 mensagem.texto

@@ -82,7 +82,7 @@ export function ButtonSendSticker(props) {
                                 }}
                                 tag="li" key={sticker}
                                 styleSheet={{
-                                    width: '50%',
+                                    width: '30%',
                                     borderRadius: '5px',
                                     padding: '10px',
                                     focus: {
