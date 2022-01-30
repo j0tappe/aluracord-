@@ -24,7 +24,7 @@ export default function ChatPage() {
     const usuarioLogado = rout.query.username;
     const [mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
-    const [deleteMenssagem, setDeleteMenssagem] = React.useState([])
+    const [deleteMensagem, setDeleteMensagem] = React.useState([])
 
 
     React.useEffect(() => {
@@ -56,7 +56,7 @@ export default function ChatPage() {
     }, []);
 
     function handleDelete(id) {
-        setDeleteMenssagem((valorAtual) => {
+        setDeleteMensagem((valorAtual) => {
             return [...valorAtual, id]
         })
         supabaseClient
@@ -64,7 +64,7 @@ export default function ChatPage() {
             .delete()
             .match({ id })
             .then(() => {
-                setDeleteMenssagem((valorAtual) => {
+                setDeleteMensagem((valorAtual) => {
                     return valorAtual.filter((vl) => {
                         return vl !== id
                     })
@@ -138,7 +138,7 @@ export default function ChatPage() {
                     <MessageList
                         mensagens={listaDeMensagens}
                         onDelete={handleDelete}
-                        excluidos={deleteMenssagem}
+                        excluidos={deleteMensagem}
                     />
 
                     <Box

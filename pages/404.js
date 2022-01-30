@@ -78,7 +78,7 @@ export default function NotFound() {
                         mainColorLight: appConfig.theme.colors.primary[400],
                         mainColorStrong: appConfig.theme.colors.primary[600],
                     }}
-                    label="Voltar pro EVA"
+                    label="Voltar ao EVA"
                     styleSheet={{
                         disabled: {},
                         focus: {},
