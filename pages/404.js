@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import { Box, Image, Text } from '@skynexui/components';
+import { Box, Button, Text, Image } from '@skynexui/components';
+import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
-
-const NotFound = () => {
+export default function NotFound() {
+    const root = useRouter();
 
     return (
         <>
@@ -11,44 +11,94 @@ const NotFound = () => {
                 styleSheet={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'space-between',
-                    backgroundColor: appConfig.theme.colors.neutrals[700],
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    backgroundImage:
+                        "url(https://wallpaperaccess.com/full/3724556.png)",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    backgroundBlendMode: "multiply",
                 }}
             >
+
                 <Image
                     styleSheet={{
-                        width: "50%"
-
+                        maxHeight: { xs: '40vh', sm: '50vh' },
+                        padding: { xs: '20px 30px', sm: '5px 5px' }
                     }}
                     src="https://external-preview.redd.it/SVfkHWVio6HBxhkvDJ4BltHX_1KlTuK6HnGLAJm1IPk.jpg?width=640&crop=smart&auto=webp&s=461c44928437614898795e1e15128d349b18f400"
                 />
 
+                <Image
+                    styleSheet={{
+                        maxHeight:
+                        {
+                            xs: '40vh',
+                            sm: '50vh'
+                        },
+                        padding: {
+                            xs: '20px 30px',
+                            sm: '5px 5px'
+                        }
+                    }}
+                />
 
                 <Text
                     variant="heading1"
                     styleSheet={{
-                        color: appConfig.theme.colors.neutrals[200],
-                        fontSize: '16px',
-                        padding: '3px 10px',
+                        fontSize: {
+                            xs: '18px',
+                            sm: '25px'
+                        },
+                        fontWeight: '600',
+                        margin: '2% 2% 1%',
+                        color: appConfig.theme.colors.neutrals[300]
                     }}
                 >
-                    404 error |
+                    404 error
                 </Text>
+
                 <Text
                     variant="body1"
                     styleSheet={{
-                        color: appConfig.theme.colors.neutrals[200],
-                        fontSize: '16px',
-                        padding: '3px 10px',
+                        fontSize:
+                        {
+                            xs: '12px', sm: '18px'
+                        },
+                        textAlign: 'center',
+                        margin: '0% 2% 2%',
+                        color: appConfig.theme.colors.neutrals[300]
                     }}
                 >
                     Reage Shinji, entra no EVA
                 </Text>
+
+                <Button
+                    buttonColors={{
+                        contrastColor: appConfig.theme.colors.neutrals["000"],
+                        mainColor: appConfig.theme.colors.primary[500],
+                        mainColorLight: appConfig.theme.colors.primary[400],
+                        mainColorStrong: appConfig.theme.colors.primary[600],
+                    }}
+                    label="Voltar pro EVA"
+                    variant="secondary"
+                    rounded="sm"
+                    size="lg"
+                    styleSheet={{
+                        disabled: {},
+                        focus: {},
+                        hover: {
+                            cursor: 'pointer'
+                        },
+                        margin: {
+                            xs: '10%',
+                            sm: '2%'
+                        },
+                    }}
+                    onClick={(event) => root.push("/")}
+                />
             </Box>
+
         </>
-
-    );
-
+    )
 }
-
-export default NotFound;
