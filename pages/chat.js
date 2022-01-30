@@ -24,6 +24,8 @@ export default function ChatPage() {
     const usuarioLogado = rout.query.username;
     const [mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
+    const [deleteMenssagem, setDeleteMenssagem] = React.useState([])
+
 
     React.useEffect(() => {
         supabaseClient
@@ -53,9 +55,30 @@ export default function ChatPage() {
         }
     }, []);
 
+    function handleDelete(id) {
+        setDeleteMenssagem((valorAtual) => {
+            return [...valorAtual, id]
+        })
+        supabaseClient
+            .from('mensagens')
+            .delete()
+            .match({ id })
+            .then(() => {
+                setDeleteMenssagem((valorAtual) => {
+                    return valorAtual.filter((vl) => {
+                        return vl !== id
+                    })
+                })
+                setListaDeMensagens(listaDeMensagens.filter((element) => {
+                    return element.id !== id
+                }))
+            })
+    }
+
+
+
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
-            // id: listaDeMensagens.length + 1,
             de: usuarioLogado,
             texto: novaMensagem,
         };
@@ -112,7 +135,11 @@ export default function ChatPage() {
                         padding: '16px',
                     }}
                 >
-                    <MessageList mensagens={listaDeMensagens} />
+                    <MessageList
+                        mensagens={listaDeMensagens}
+                        onDelete={handleDelete}
+                        excluidos={deleteMenssagem}
+                    />
 
                     <Box
                         as="form"
@@ -237,37 +264,70 @@ function MessageList(props) {
                     >
 
 
+
+
                         <Box
                             styleSheet={{
-                                marginBottom: '8px',
+                                marginBottom: '2px',
+                                display: 'flex',
+                                alignItems: 'flex-start',
+                                justifyContent: 'space-between',
+
                             }}
                         >
-                            <Image
-                                styleSheet={{
-                                    width: '20px',
-                                    height: '20px',
-                                    borderRadius: '50%',
-                                    display: 'inline-block',
-                                    marginRight: '8px',
-                                }}
-                                src={`https://github.com/${mensagem.de}.png`}
-                            />
-                            <Text tag="strong">
-                                {mensagem.de}
-                            </Text>
-                            <Text
-                                styleSheet={{
-                                    fontSize: '10px',
-                                    marginLeft: '8px',
-                                    color: appConfig.theme.colors.neutrals[300],
-                                }}
-                                tag="span"
-                            >
-                                {(new Date().toLocaleDateString())}
-                            </Text>
+                            <Box>
+                                <Image
+                                    styleSheet={{
+                                        width: '20px',
+                                        height: '20px',
+                                        borderRadius: '50%',
+                                        display: 'inline-block',
+                                        marginRight: '8px',
+                                    }}
+                                    src={`https://github.com/${mensagem.de}.png`}
+                                />
+                                <Text tag="strong">
+                                    {mensagem.de}
+                                </Text>
+                                <Text
+                                    styleSheet={{
+                                        fontSize: '10px',
+                                        marginLeft: '8px',
+                                        color: appConfig.theme.colors.neutrals[300],
+                                    }}
+                                    tag="span"
+                                >
+                                    {(new Date().toLocaleDateString())}
+                                </Text>
+                            </Box>
+
+                            <Box>
+                                <Button
+                                    disabled={props.excluidos.find((id) => {
+                                        return id === mensagem.id
+                                    })}
+                                    type='button'
+                                    label='X'
+                                    styleSheet={{
+                                        width: '20px',
+                                        height: '20px',
+                                        backgroundColor: appConfig.theme.colors.neutrals[700],
+                                    }}
+                                    buttonColors={{
+                                        contrastColor: appConfig.theme.colors.neutrals["000"],
+                                        mainColor: appConfig.theme.colors.primary[500],
+                                        mainColorLight: appConfig.theme.colors.primary[400],
+                                        mainColorStrong: appConfig.theme.colors.primary[600],
+
+                                    }}
+                                    onClick={() => {
+                                        props.onDelete(mensagem.id)
+
+                                    }}
+                                ></Button>
+                            </Box>
                         </Box>
-                        {/* [Declarativo] */}
-                        {/* Condicional: {mensagem.texto.startsWith(':sticker:').toString()} */}
+
                         {mensagem.texto.startsWith(':sticker:')
                             ? (
                                 <Image

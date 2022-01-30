@@ -12,27 +12,22 @@ export default function NotFound() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    flexDirection: 'column',
+                    flexDirection: 'row',
                     backgroundImage:
                         "url(https://wallpaperaccess.com/full/3724556.png)",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundBlendMode: "multiply",
+
+
                 }}
             >
 
-                <Image
-                    styleSheet={{
-                        maxHeight: { xs: '40vh', sm: '50vh' },
-                        padding: { xs: '20px 30px', sm: '5px 5px' }
-                    }}
-                    src="https://external-preview.redd.it/SVfkHWVio6HBxhkvDJ4BltHX_1KlTuK6HnGLAJm1IPk.jpg?width=640&crop=smart&auto=webp&s=461c44928437614898795e1e15128d349b18f400"
-                />
+
 
                 <Image
                     styleSheet={{
-                        maxHeight:
-                        {
+                        maxHeight: {
                             xs: '40vh',
                             sm: '50vh'
                         },
@@ -41,6 +36,7 @@ export default function NotFound() {
                             sm: '5px 5px'
                         }
                     }}
+                    src="https://external-preview.redd.it/SVfkHWVio6HBxhkvDJ4BltHX_1KlTuK6HnGLAJm1IPk.jpg?width=640&crop=smart&auto=webp&s=461c44928437614898795e1e15128d349b18f400"
                 />
 
                 <Text
@@ -51,11 +47,11 @@ export default function NotFound() {
                             sm: '25px'
                         },
                         fontWeight: '600',
-                        margin: '2% 2% 1%',
-                        color: appConfig.theme.colors.neutrals[300]
+                        marginLeft: '30px',
+                        color: appConfig.theme.colors.neutrals[100]
                     }}
                 >
-                    404 error
+                    404 error |
                 </Text>
 
                 <Text
@@ -63,27 +59,26 @@ export default function NotFound() {
                     styleSheet={{
                         fontSize:
                         {
-                            xs: '12px', sm: '18px'
+                            xs: '16px',
+                            sm: '22px'
                         },
                         textAlign: 'center',
-                        margin: '0% 2% 2%',
-                        color: appConfig.theme.colors.neutrals[300]
+                        marginLeft: '1%',
+                        color: appConfig.theme.colors.neutrals[100]
                     }}
                 >
                     Reage Shinji, entra no EVA
                 </Text>
 
+
                 <Button
                     buttonColors={{
                         contrastColor: appConfig.theme.colors.neutrals["000"],
-                        mainColor: appConfig.theme.colors.primary[500],
+                        mainColor: appConfig.theme.colors.neutrals[600],
                         mainColorLight: appConfig.theme.colors.primary[400],
                         mainColorStrong: appConfig.theme.colors.primary[600],
                     }}
                     label="Voltar pro EVA"
-                    variant="secondary"
-                    rounded="sm"
-                    size="lg"
                     styleSheet={{
                         disabled: {},
                         focus: {},
