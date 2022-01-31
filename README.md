@@ -13,6 +13,11 @@ Projeto desenvolvido na Imersão React da [Alura](https://www.alura.com.br/).
      - Botão enviar mensagem
      - Botão excluir mensagem
 
+- Continuarei a desenvolver o projeto acrescentando melhorias e novas funcionalidas como:
+     - Autenticação de login através do github
+     - Bio do usuário logado
+     - Clicar em quem enviou a mensagem e abrir caixa com informações/detalhes do usuário
+
 ![Home Page](https://user-images.githubusercontent.com/31297561/151714362-3cb283e9-e86d-4c6d-886c-818bed820f48.png)
 ![404 Page](https://user-images.githubusercontent.com/31297561/151714363-3c650887-3bc5-43b3-a5a1-3ae064958a45.png)
 
